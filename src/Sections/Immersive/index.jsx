@@ -4,11 +4,13 @@ import { ARItems } from "../../Assets/ARItems";
 import ARProduct from "../../Components/ARProduct";
 
 const ImmersiveDiv = styled.div`
-    height: 100vh;
+    height: calc(100vh - 100px);
     background-color: #30288F;
     display: flex;
     align-items: center;
     flex-direction: column;
+    overflow: hidden;
+    padding: 60px;
 `
 
 const ImmersiveText = styled.p`
@@ -17,20 +19,25 @@ const ImmersiveText = styled.p`
     -webkit-text-fill-color: transparent;
     font-family: 'SF Pro Display';
     font-size: 2.75em;
-    font-weight: 100;
+    font-weight: 600;
     letter-spacing: 0.03em;
     padding-top: 100px;
-    max-width: 60%;
+    max-width: 50%;
     text-align: center;
+    margin-bottom: 70px;
+`
+
+const ProductsWrapper = styled.div`
+    max-width: 100%;
 `
 
 const Products = styled.div`
     display: flex;
     flex-direction: row;
-    width: 100%;
     justify-content: space-evenly;
     transition: transform 0.5s ease;
     transform: ${({ currentIndex }) => `translateX(-${currentIndex * 20}%)`};
+    box-sizing: border-box;
 `
 
 const Immersive = () => {
@@ -60,11 +67,13 @@ const Immersive = () => {
             <ImmersiveText>
                 Tulfa AR creates immersive and engaging eCommerce experiences
             </ImmersiveText>
-            <Products currentIndex={currentIndex} style={{ transition: isTransitioning ? 'transform 0.5s ease' : 'none' }}>
-                {duplicatedItems.map((item, index) => 
-                    <ARProduct key={index} logo={item.logo} />
-                )}
-            </Products>
+            <ProductsWrapper>
+                <Products currentIndex={currentIndex} style={{ transition: isTransitioning ? 'transform 0.5s ease' : 'none' }}>
+                    {duplicatedItems.map((item, index) => 
+                        <ARProduct key={index} logo={item.logo} />
+                    )}
+                </Products>
+            </ProductsWrapper>
         </ImmersiveDiv>
     )
 }

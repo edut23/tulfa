@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useRef, useEffect } from "react";
 import styled from "styled-components";
 import { MainContext } from "../../Context/MainContext";
 
@@ -19,10 +19,15 @@ const Text = styled.div`
 `
 
 const CTA = () => {
-    const { whiteSectionRef } = useContext(MainContext)
+    const sectionRef = useRef(null);
+    const { addWhiteSectionRef } = useContext(MainContext);
+
+    useEffect(() => {
+        addWhiteSectionRef(sectionRef.current);
+    }, [addWhiteSectionRef]);
 
     return (
-        <CTADiv ref={whiteSectionRef}>
+        <CTADiv ref={sectionRef}>
             <Text>
                 The way businesses and consumers shop has radically changed. Discover how top brands across multiple industries deliver an excellent digital-first customer experience with Tulfa.
             </Text>

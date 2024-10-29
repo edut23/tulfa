@@ -9,6 +9,8 @@ import Immersive from './Sections/Immersive';
 import { ThemeProvider } from 'styled-components';
 import { theme } from './theme';
 import { MainProvider } from './Context/MainContext';
+import Solutions from './Sections/Solutions';
+import Innovations from './Sections/Innovations';
 
 function App() {
 
@@ -19,6 +21,8 @@ function App() {
         <Banner/>
         <CTA/>
         <Immersive/>
+        <Solutions />
+        <Innovations />
       </ThemeProvider>
     </MainProvider>
   );

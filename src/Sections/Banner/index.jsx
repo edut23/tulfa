@@ -2,6 +2,7 @@ import { useState } from "react"
 import { MaterialSymbol } from "react-material-symbols"
 import 'react-material-symbols/outlined'
 import styled from "styled-components"
+import video from "../../Assets/banner.mp4"
 
 const BannerDiv = styled.div`
     position: relative;
@@ -60,7 +61,7 @@ const ContentDiv = styled.div`
 
 
 const Text = styled.p`
-    background: linear-gradient(#A9A4F3, #FBFBF8);
+    background: linear-gradient(88.89deg, #A9A4F3 -1.41%, #FBFBF8 108.48%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-family: 'SF Pro Display';
@@ -77,7 +78,9 @@ const Banner = () => {
 
     return (
         <BannerDiv>
-            <Video autoPlay muted={mute} playsInline loop src="https://www.tulfa.com/wp-content/uploads/2024/04/Tulfa-Reel1.mp4"/>
+            <Video autoPlay muted={mute} playsInline loop src={video} >
+                <source src={video} type="video/mp4"/>
+            </Video>
             <ContentDiv>
                 <SoundButton onClick={() => setMute(prevState => !prevState)}>
                     <MaterialSymbol icon="volume_up" />
