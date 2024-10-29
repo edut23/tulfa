@@ -1,24 +1,26 @@
-import logo from './logo.svg';
 import './App.css';
+import Banner from './Sections/Banner';
+import '@qpokychuk/sf-pro-display/index.css';
+import '@qpokychuk/sf-pro-display/normal.css';
+import '@qpokychuk/sf-pro-display/italic.css';
+import Header from './Components/Header';
+import CTA from './Sections/CTA';
+import Immersive from './Sections/Immersive';
+import { ThemeProvider } from 'styled-components';
+import { theme } from './theme';
+import { MainProvider } from './Context/MainContext';
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <MainProvider>
+      <ThemeProvider theme={theme}>
+        <Header/>
+        <Banner/>
+        <CTA/>
+        <Immersive/>
+      </ThemeProvider>
+    </MainProvider>
   );
 }
 
