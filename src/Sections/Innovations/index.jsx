@@ -1,5 +1,8 @@
 import styled from "styled-components";
 import section1 from "../../Assets/section1.mp4"
+import section2 from "../../Assets/section2.mp4"
+import section3 from "../../Assets/section3.png"
+import section4 from "../../Assets/section4.mp4"
 
 const InnovationsDiv = styled.div`
     background-color: #151568;
@@ -63,6 +66,10 @@ const Video = styled.video`
     border-radius: 20px;
 `
 
+const Image = styled.img`
+    border-radius: 20px;
+`
+
 const Innovations = () => {
     return(
         <InnovationsDiv>
@@ -81,64 +88,62 @@ const Innovations = () => {
                         LEARN MORE ABOUT AR
                     </Button>
                 </Content>
-                <Video autoPlay>
+                <Video controls>
                     <source src={section1} type="video/mp4"/>
                 </Video>
             </Section>
             <Section>
-                <Video autoPlay>
-                    <source src={section1} type="video/mp4"/>
+                <Video controls>
+                    <source src={section2} type="video/mp4"/>
                 </Video>
                 <Content>
                     <h2>
-                        Metaverse Content Production
+                        3D Model Creation
                     </h2>
                     <h1>
-                        InStore Immersive Activation
+                        High-quality Product Renders
                     </h1>
                     <p>
-                        Tulfa’s AR feature was tailor-made to suit both the venue and the audience. With the easy-to-operate touchscreen scan interface, we brought live-action bees to Kate Spade customers!
+                        The future of digital experiences is here. Tulfa's 3D Lab provides you with an instant metaverse strategy by creating 3D models and other assets to help you sell your products faster. We create and deploy 3D ﻿models that work across platforms.
                     </p>
                     <Button>
-                        LEARN MORE ABOUT AR
+                        3D ASSETS CREATION
                     </Button>
                 </Content>
             </Section>
             <Section>
                 <Content>
                     <h2>
-                        Metaverse Content Production
+                        3D Model Creation
                     </h2>
                     <h1>
-                        InStore Immersive Activation
+                        3D Product Configuration
                     </h1>
                     <p>
-                        Tulfa’s AR feature was tailor-made to suit both the venue and the audience. With the easy-to-operate touchscreen scan interface, we brought live-action bees to Kate Spade customers!
+                        It enables for product customization in terms of colors, materials, textures, sizes, pricing, and other factors. 3D Product Configuration generates stunning real-time 3D product visualizations.
                     </p>
                     <Button>
-                        LEARN MORE ABOUT AR
+                        3D PRODUCT CONFIGURATION
                     </Button>
                 </Content>
-                <Video autoPlay>
-                    <source src={section1} type="video/mp4"/>
-                </Video>
+                <Image src={section3} />
             </Section>
             <Section>
-                <Video autoPlay>
-                    <source src={section1} type="video/mp4"/>
+                <Video controls>
+                    <source src={section4} type="video/mp4"/>
                 </Video>
                 <Content>
                     <h2>
-                        Metaverse Content Production
+                        Product Content
                     </h2>
                     <h1>
-                        InStore Immersive Activation
+                        Enhanced Content that Converts
                     </h1>
                     <p>
-                        Tulfa’s AR feature was tailor-made to suit both the venue and the audience. With the easy-to-operate touchscreen scan interface, we brought live-action bees to Kate Spade customers!
+                        We enhance your product listings and create digital experiences that transform your digital shelf. Check out our new video for a quick highlight of how we can help your eCommerce business succeed!
                     </p>
                     <Button>
-                        LEARN MORE ABOUT AR
+                        LEARN MORE ABOUT ABOUT PRODUCT CONTENT
                     </Button>
                 </Content>
             </Section>
