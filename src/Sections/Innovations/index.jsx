@@ -68,6 +68,7 @@ const Video = styled.video`
 
 const Image = styled.img`
     border-radius: 20px;
+    min-width: 672px;
 `
 
 const Innovations = () => {
