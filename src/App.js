@@ -11,6 +11,7 @@ import { theme } from './theme';
 import { MainProvider } from './Context/MainContext';
 import Solutions from './Sections/Solutions';
 import Innovations from './Sections/Innovations';
+import Companies from './Sections/Companies';
 
 function App() {
 
@@ -23,6 +24,7 @@ function App() {
         <Immersive/>
         <Solutions />
         <Innovations />
+        <Companies />
       </ThemeProvider>
     </MainProvider>
   );

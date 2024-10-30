@@ -1,23 +1,23 @@
 import styled from "styled-components";
 
 const ProductDiv = styled.div`
-    border-radius: 12px;
-    height: 390px;
+    height: 100%;
     display: flex;
     overflow: hidden;
-    min-width: 20%;
+    min-width: ${props => props.items ? `calc(100% / ${props.items})` : 'calc(100% / 5)' }; /* Ajusta a largura para caber exatamente 5 itens */
     box-sizing: border-box;
-    margin: 10px;
+    padding: 0 10px;
 `
 
 const Logo = styled.img`
     width: 100%;
     overflow: hidden;
+    border-radius: 12px;
 `
 
-const ARProduct = ({logo}) => {
+const ARProduct = ({logo, items}) => {
     return(
-        <ProductDiv>
+        <ProductDiv items={items}>
             <Logo src={logo} />
         </ProductDiv>
     )

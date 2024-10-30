@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import styled from "styled-components";
-import { ARItems } from "../../Assets/ARItems";
+import { CompaniesItems } from "../../Assets/CompaniesItems";
 import ARProduct from "../../Components/ARProduct";
 
-const ImmersiveDiv = styled.div`
-    min-height: calc(100vh - 100px);
-    background-color: #30288F;
+const CompaniesDiv = styled.div`
+    min-height: calc(60vh - 100px);
+    background-color: #151568;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -13,16 +13,14 @@ const ImmersiveDiv = styled.div`
     padding: 60px;
 `
 
-const ImmersiveText = styled.p`
-    background: linear-gradient(#A29AFF, #FFC6BD);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-family: 'SF Pro Display';
-    font-size: 2.75em;
+const CompaniesText = styled.p`
+    color: #FFFFFF;
+    font-family: SF Pro Display;
+    font-size: 40px;
     font-weight: 600;
     letter-spacing: 0.03em;
+    text-align: left;
     padding-top: 100px;
-    max-width: 50%;
     text-align: center;
     margin-bottom: 70px;
 `
@@ -30,7 +28,6 @@ const ImmersiveText = styled.p`
 const ProductsWrapper = styled.div`
     max-width: 100%;
     width: 1600px;
-    height: 390px;
     overflow: hidden;
 `
 
@@ -39,14 +36,29 @@ const Products = styled.div`
     flex-direction: row;
     justify-content: flex-start;
     transition: transform 0.5s ease;
-    transform: ${({ currentIndex }) => `translateX(-${currentIndex * 20}%)`};
+    transform: ${({ currentIndex }) => `translateX(-${currentIndex * 12.5}%)`};
     box-sizing: border-box;
 `
 
-const Immersive = () => {
+const Button = styled.button`
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: #736DF9;
+    font-family: SF Pro Display;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-align: left;
+    color: #FFFFFF;
+    border: none;
+    width: fit-content;
+    margin-top: 50px;
+`
+
+const Companies = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isTransitioning, setIsTransitioning] = useState(true);
-    const duplicatedItems = [...ARItems, ...ARItems];
+    const duplicatedItems = [...CompaniesItems, ...CompaniesItems];
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -57,7 +69,7 @@ const Immersive = () => {
     }, []);
 
     useEffect(() => {
-        if (currentIndex === ARItems.length) {
+        if (currentIndex === CompaniesItems.length) {
           setTimeout(() => {
             setIsTransitioning(false);
             setCurrentIndex(0);
@@ -66,19 +78,20 @@ const Immersive = () => {
       }, [currentIndex]);
 
     return(
-        <ImmersiveDiv>
-            <ImmersiveText>
-                Tulfa AR creates immersive and engaging eCommerce experiences
-            </ImmersiveText>
+        <CompaniesDiv>
+            <CompaniesText>
+                Trusted by top Fortune 500 clients from around the world
+            </CompaniesText>
             <ProductsWrapper>
                 <Products currentIndex={currentIndex} style={{ transition: isTransitioning ? 'transform 0.5s ease' : 'none' }}>
                     {duplicatedItems.map((item, index) => 
-                        <ARProduct key={index} logo={item.logo} />
+                        <ARProduct key={index} logo={item.logo} items={8}/>
                     )}
                 </Products>
             </ProductsWrapper>
-        </ImmersiveDiv>
+            <Button>WHO WE WORK WITH</Button>
+        </CompaniesDiv>
     )
 }
 
-export default Immersive;
+export default Companies;
