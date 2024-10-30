@@ -7,6 +7,9 @@ const ProductDiv = styled.div`
     min-width: ${props => props.items ? `calc(100% / ${props.items})` : 'calc(100% / 5)' }; /* Ajusta a largura para caber exatamente 5 itens */
     box-sizing: border-box;
     padding: 0 10px;
+    flex-direction: column;
+    font-family: SF Pro Display;
+    letter-spacing: 0.03em;
 `
 
 const Logo = styled.img`
@@ -14,11 +17,17 @@ const Logo = styled.img`
     overflow: hidden;
     border-radius: 12px;
 `
+const Text = styled.p`
+    font-weight: 600;
+    font-size: 18px;
+    text-align: center;
+`
 
-const ARProduct = ({logo, items}) => {
+const ARProduct = ({logo, items, text}) => {
     return(
         <ProductDiv items={items}>
             <Logo src={logo} />
+            {text && <Text>{text}</Text>}
         </ProductDiv>
     )
 }

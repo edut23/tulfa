@@ -12,6 +12,8 @@ import { MainProvider } from './Context/MainContext';
 import Solutions from './Sections/Solutions';
 import Innovations from './Sections/Innovations';
 import Companies from './Sections/Companies';
+import Info from './Sections/Info';
+import Case from './Sections/CaseStudies';
 
 function App() {
 
@@ -25,6 +27,8 @@ function App() {
         <Solutions />
         <Innovations />
         <Companies />
+        <Info />
+        <Case />
       </ThemeProvider>
     </MainProvider>
   );
