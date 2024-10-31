@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import styled from "styled-components";
 import { ARItems } from "../../Assets/ARItems";
 import ARProduct from "../../Components/ARProduct";
+import { MaterialSymbol } from "react-material-symbols";
 
 const ImmersiveDiv = styled.div`
     background-color: #30288F;
@@ -60,6 +61,33 @@ const Products = styled.div`
     box-sizing: border-box;
 `
 
+const Arrows = styled.div`
+    position: absolute;
+    z-index: 2;
+    width: -webkit-fill-available;
+    display: flex;
+    justify-content: space-between;
+    margin-top: calc(25vh + 300px);
+    padding: 0 60px;
+
+    @media (max-width: 1024px) {
+        margin-top: calc(25vh + 270px);
+    }
+
+    @media (max-width: 600px) {
+        margin-top: calc(25vh + 220px);
+    }
+
+    .material-symbols{  
+        background-color: #00000000;
+        border: none;
+    }
+
+    .left{
+        transform: scaleX(-1);
+    }
+`
+
 const Immersive = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isTransitioning, setIsTransitioning] = useState(true);
@@ -80,6 +108,9 @@ const Immersive = () => {
             setCurrentIndex(0);
           }, 500);
         }
+        else
+            setIsTransitioning(true);
+
       }, [currentIndex]);
 
     return(
@@ -87,6 +118,10 @@ const Immersive = () => {
             <ImmersiveText>
                 Tulfa AR creates immersive and engaging eCommerce experiences
             </ImmersiveText>
+                <Arrows>
+                    <MaterialSymbol onClick={() => setCurrentIndex((prevIndex) => prevIndex - 1)} className="left" color="#C4C4C4" size={30} icon="arrow_forward_ios" />
+                    <MaterialSymbol onClick={() => setCurrentIndex((prevIndex) => prevIndex + 1)} size={30} color="#C4C4C4" icon="arrow_forward_ios" />
+                </Arrows>
             <ProductsWrapper>
                 <Products currentIndex={currentIndex} style={{ transition: isTransitioning ? 'transform 0.5s ease' : 'none' }}>
                     {duplicatedItems.map((item, index) => 

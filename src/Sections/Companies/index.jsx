@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import styled from "styled-components";
 import { CompaniesItems } from "../../Assets/CompaniesItems";
 import ARProduct from "../../Components/ARProduct";
+import { MaterialSymbol } from "react-material-symbols";
 
 const CompaniesDiv = styled.div`
     min-height: calc(60vh - 100px);
@@ -38,6 +39,10 @@ const ProductsWrapper = styled.div`
     max-width: 1600px;
     width: 1600px;
     overflow: hidden;
+
+    @media (max-width: 600px) {
+        max-width: 1200px;
+    }
 `
 
 const Products = styled.div`
@@ -64,6 +69,42 @@ const Button = styled.button`
     margin-top: 50px;
 `
 
+const Arrows = styled.div`
+    position: absolute;
+    z-index: 2;
+    width: -webkit-fill-available;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    margin-top: calc(25vh + 110px);
+    padding: 0 60px;
+
+    @media (max-width: 1600px) {
+        margin-top: calc(35vh + 80px);
+    }
+
+    @media (max-width: 1024px) {
+        margin-top: calc(45vh + 10px);
+    }
+
+    @media (max-width: 600px) {
+        margin-top: calc(50vh + 80px);
+    }
+
+    .material-symbols{  
+        background-color: #00000000;
+        border: none;
+
+        @media (max-width: 1100px) {
+            color: #00000000 !important;
+        }
+    }
+
+    .left{
+        transform: scaleX(-1);
+    }
+`
+
 const Companies = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isTransitioning, setIsTransitioning] = useState(true);
@@ -84,6 +125,9 @@ const Companies = () => {
             setCurrentIndex(0);
           }, 500);
         }
+        else
+            setIsTransitioning(true);
+        
       }, [currentIndex]);
 
     return(
@@ -91,6 +135,10 @@ const Companies = () => {
             <CompaniesText>
                 Trusted by top Fortune 500 clients from around the world
             </CompaniesText>
+            <Arrows>
+                <MaterialSymbol onClick={() => setCurrentIndex((prevIndex) => prevIndex - 1)} className="left" color="#C4C4C4" size={30} icon="arrow_forward_ios" />
+                <MaterialSymbol onClick={() => setCurrentIndex((prevIndex) => prevIndex + 1)} size={30} color="#C4C4C4" icon="arrow_forward_ios" />
+            </Arrows>
             <ProductsWrapper>
                 <Products currentIndex={currentIndex} style={{ transition: isTransitioning ? 'transform 0.5s ease' : 'none' }}>
                     {duplicatedItems.map((item, index) => 

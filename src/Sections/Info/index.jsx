@@ -9,6 +9,7 @@ const InfoDiv = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
+    max-width: 100vw;
 
     @media (max-width: 1024px) {
         padding: 10%

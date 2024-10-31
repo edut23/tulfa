@@ -8,6 +8,7 @@ const BannerDiv = styled.div`
     position: relative;
     min-height: 80vh;
     overflow: hidden;
+    margin-top: -1px;
 `
 
 const Video = styled.video`

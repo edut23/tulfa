@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import styled from "styled-components";
 import { CaseItems } from "../../Assets/CaseItems";
 import ARProduct from "../../Components/ARProduct";
+import { MaterialSymbol } from "react-material-symbols";
 
 const CaseDiv = styled.div`
     min-height: calc(60vh - 100px);
@@ -48,6 +49,36 @@ const Cases = styled.div`
     box-sizing: border-box;
 `
 
+const Arrows = styled.div`
+    position: absolute;
+    z-index: 2;
+    width: -webkit-fill-available;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 14%;
+    padding: 0 60px;
+
+    @media (max-width: 1400px) {
+        margin-top: 18%;
+        padding: 0 25px;
+    }
+
+
+    .material-symbols{  
+        background-color: #00000000;
+        border: none;
+
+        @media (max-width: 1023px) {
+            color: #00000000 !important;
+        }
+    }
+
+    .left{
+        transform: scaleX(-1);
+    }
+`
+
 const Case = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isTransitioning, setIsTransitioning] = useState(true);
@@ -75,6 +106,10 @@ const Case = () => {
             <CaseText>
                 Case Studies
             </CaseText>
+            <Arrows>
+                <MaterialSymbol onClick={() => setCurrentIndex((prevIndex) => prevIndex - 1)} className="left" color="#C4C4C4" size={30} icon="arrow_forward_ios" />
+                <MaterialSymbol onClick={() => setCurrentIndex((prevIndex) => prevIndex + 1)} size={30} color="#C4C4C4" icon="arrow_forward_ios" />
+            </Arrows>
             <CaseWrapper>
                 <Cases currentIndex={currentIndex} style={{ transition: isTransitioning ? 'transform 0.5s ease' : 'none' }}>
                     {duplicatedItems.map((item, index) => 

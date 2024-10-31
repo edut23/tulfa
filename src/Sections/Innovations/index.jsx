@@ -8,6 +8,7 @@ const InnovationsDiv = styled.div`
     background-color: #151568;
     padding: 0 200px;
     text-align: left;
+    max-width: 100vw;
     
 
     @media (max-width: 1024px) {
@@ -34,6 +35,7 @@ const Section = styled.div`
         height: auto;
         justify-content: center;
         text-align: center;
+        padding: 30px 0;
     }
 `
 
