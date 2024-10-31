@@ -3,6 +3,8 @@ import React, { createContext, useState, useEffect, useRef } from 'react';
 export const MainContext = createContext();
 
 export const MainProvider = ({ children }) => {
+    const [menu, setMenu] = useState(false);
+    const [page, setPage] = useState(1);
     const [isDark, setIsDark] = useState(false);
     const whiteSectionsRefs = useRef([]);
 
@@ -52,7 +54,7 @@ export const MainProvider = ({ children }) => {
 
 
     return (
-        <MainContext.Provider value={{ isDark, addWhiteSectionRef }}>
+        <MainContext.Provider value={{ isDark, addWhiteSectionRef, menu, setMenu, page, setPage }}>
             {children}
         </MainContext.Provider>
     );

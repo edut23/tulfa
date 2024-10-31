@@ -63,7 +63,7 @@ const Products = styled.div`
 
 const Arrows = styled.div`
     position: absolute;
-    z-index: 2;
+    z-index: 1;
     width: -webkit-fill-available;
     display: flex;
     justify-content: space-between;

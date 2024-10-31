@@ -8,13 +8,15 @@ import CTA from './Sections/CTA';
 import Immersive from './Sections/Immersive';
 import styled, { ThemeProvider } from 'styled-components';
 import { theme } from './theme';
-import { MainProvider } from './Context/MainContext';
+import { MainContext, MainProvider } from './Context/MainContext';
 import Solutions from './Sections/Solutions';
 import Innovations from './Sections/Innovations';
 import Companies from './Sections/Companies';
 import Info from './Sections/Info';
 import Case from './Sections/CaseStudies';
 import Contact from './Sections/Contact';
+import { useContext } from 'react';
+import Menu from './Components/Menu';
 
 const AppDiv = styled.div`
   width: 100vw;
@@ -28,6 +30,7 @@ function App() {
     <MainProvider>
       <AppDiv>
         <ThemeProvider theme={theme}>
+          <Menu />
           <Header/>
           <Banner/>
           <CTA/>

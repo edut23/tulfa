@@ -1,6 +1,7 @@
 import { MaterialSymbol } from "react-material-symbols";
 import styled from "styled-components";
 import { ReactComponent as Logo } from '../../Assets/Logo.svg' 
+import { ReactComponent as Logo2 } from '../../Assets/Logo2.svg' 
 import { useContext } from "react";
 import { MainContext } from "../../Context/MainContext";
 
@@ -10,16 +11,27 @@ const HeaderDiv = styled.div`
     max-height: 100px;
     width: 100%;
     max-width: 100vw;
-    z-index: 2;
+    z-index: 3;
     display: flex;
     justify-content: space-between;
     align-items: center;
     color: ${({ isDark }) => (isDark ? '#000' : '#fff')};
     transition: color 0.3s ease;
 
-    span{
+    .material-symbols{  
+        background-color: #00000000;
+        border: none;
+        color: ${({ isDark, menuOpen }) => ((isDark || menuOpen ) ? '#000' : '#fff')};
+    }
+
+    button{
         margin: 2% 0;
-        margin-right: 10%;
+        margin-right: 3%;
+
+        @media (max-width: 600px) {
+            margin: 4% 0;
+            margin-right: 3%;
+        }
     }
 
     svg {
@@ -39,18 +51,18 @@ const HeaderLogo = styled.div`
     width: 30%;
     height: 42px;
     margin: 2% 0;
-    margin-left: 10%;
+    margin-left: 3%;
 `
 
 const Header = () => {
-    const { isDark } = useContext(MainContext);
+    const { isDark, menu, setMenu, page } = useContext(MainContext);
 
     return (
-        <HeaderDiv isDark={isDark}>
-            <HeaderLogo isDark={isDark}>
-                <Logo/>
+        <HeaderDiv isDark={isDark} menuOpen={menu}>
+            <HeaderLogo isDark={isDark} >
+                {(menu && page === 1) ? <Logo2/> : <Logo/>} 
             </HeaderLogo>
-            <MaterialSymbol icon="menu" size={42}/>
+            <MaterialSymbol icon={menu ? "close" : "menu"} size={42} onClick={() => setMenu(prevState => !prevState)}/>
         </HeaderDiv>
     )
 }
