@@ -9,6 +9,15 @@ const InfoDiv = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
+
+    @media (max-width: 1024px) {
+        padding: 10%
+    }
+
+    @media (max-width: 600px) {
+        padding: 5%;
+        display: flex;
+    }
 `
 
 const InfoHeader = styled.div`
@@ -37,6 +46,7 @@ const Options = styled.div`
     justify-content: center;
     gap: 10px;
     margin-bottom: 30px;
+    flex-wrap: wrap;
 `
 
 const OptionItem = styled.button`
@@ -61,6 +71,7 @@ const NewsDiv = styled.div`
 
     @media (max-width: 600px) {
         grid-template-columns: 1fr;
+        padding: 5%;
     }
 `
 

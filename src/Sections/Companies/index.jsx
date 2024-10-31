@@ -11,6 +11,15 @@ const CompaniesDiv = styled.div`
     flex-direction: column;
     overflow: hidden;
     padding: 60px;
+
+    @media (max-width: 1024px) {
+        padding: 10%
+    }
+
+    @media (max-width: 600px) {
+        padding: 5%;
+        display: flex;
+    }
 `
 
 const CompaniesText = styled.p`
@@ -26,7 +35,7 @@ const CompaniesText = styled.p`
 `
 
 const ProductsWrapper = styled.div`
-    max-width: 100%;
+    max-width: 1600px;
     width: 1600px;
     overflow: hidden;
 `

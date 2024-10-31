@@ -29,6 +29,14 @@ const CaseWrapper = styled.div`
     max-width: 100%;
     width: 1600px;
     overflow: hidden;
+
+    @media (max-width: 1024px) {
+        max-width: 100%;
+    }
+
+    @media (max-width: 600px) {
+        max-width: 800px;
+    }
 `
 
 const Cases = styled.div`
