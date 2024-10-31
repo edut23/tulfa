@@ -6,7 +6,7 @@ import '@qpokychuk/sf-pro-display/italic.css';
 import Header from './Components/Header';
 import CTA from './Sections/CTA';
 import Immersive from './Sections/Immersive';
-import { ThemeProvider } from 'styled-components';
+import styled, { ThemeProvider } from 'styled-components';
 import { theme } from './theme';
 import { MainProvider } from './Context/MainContext';
 import Solutions from './Sections/Solutions';
@@ -14,22 +14,30 @@ import Innovations from './Sections/Innovations';
 import Companies from './Sections/Companies';
 import Info from './Sections/Info';
 import Case from './Sections/CaseStudies';
+import Contact from './Sections/Contact';
+
+const AppDiv = styled.div`
+  width: 100vw;
+`
 
 function App() {
 
   return (
     <MainProvider>
-      <ThemeProvider theme={theme}>
-        <Header/>
-        <Banner/>
-        <CTA/>
-        <Immersive/>
-        <Solutions />
-        <Innovations />
-        <Companies />
-        <Info />
-        <Case />
-      </ThemeProvider>
+      <AppDiv>
+        <ThemeProvider theme={theme}>
+          <Header/>
+          <Banner/>
+          <CTA/>
+          <Immersive/>
+          <Solutions />
+          <Innovations />
+          <Companies />
+          <Info />
+          <Case />
+          <Contact />
+        </ThemeProvider>
+      </AppDiv>
     </MainProvider>
   );
 }
