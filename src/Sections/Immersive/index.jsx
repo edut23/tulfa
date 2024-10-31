@@ -4,13 +4,20 @@ import { ARItems } from "../../Assets/ARItems";
 import ARProduct from "../../Components/ARProduct";
 
 const ImmersiveDiv = styled.div`
-    min-height: calc(100vh - 100px);
     background-color: #30288F;
     display: flex;
     align-items: center;
     flex-direction: column;
     overflow: hidden;
     padding: 60px;
+
+    @media (max-width: 1024px) {
+        padding: 0 10%;
+    }
+
+    @media (max-width: 600px) {
+        padding: 0 5%;
+    }
 `
 
 const ImmersiveText = styled.p`
@@ -25,12 +32,22 @@ const ImmersiveText = styled.p`
     max-width: 50%;
     text-align: center;
     margin-bottom: 70px;
+
+    @media (max-width: 1024px) {
+        font-size: 2em;
+        max-width: 70%;
+    }
+
+    @media (max-width: 600px) {
+        font-size: 1.5em;
+        max-width: 90%;
+    }
 `
 
 const ProductsWrapper = styled.div`
-    max-width: 100%;
+    max-width: 1600px;
     width: 1600px;
-    height: 390px;
+    margin-bottom: 164px;
     overflow: hidden;
 `
 

@@ -8,6 +8,14 @@ const SolutionsDiv = styled.div`
     flex-direction: column;
     align-items: center;
     padding: 100px;
+
+    @media (max-width: 1024px) {
+        padding: 10%;
+    }
+
+    @media (max-width: 600px) {
+        padding: 5% 0;
+    }
 `
 
 const SolutionsHeader = styled.div`
@@ -21,8 +29,19 @@ const Title = styled.div`
     -webkit-text-fill-color: transparent;
     font-family: 'SF Pro Display';
     font-size: 2.75em;
-    font-weight: 100;
+    font-weight: 600;
     letter-spacing: 0.03em;
+    margin-bottom: 10px;
+
+    @media (max-width: 1024px) {
+        font-size: 2em;
+        padding: 0 5%;
+    }
+
+    @media (max-width: 600px) {
+        font-size: 1.75em;
+        padding: 0 5%;
+    }
 `
 
 const SubTitle = styled.div`
@@ -31,6 +50,14 @@ const SubTitle = styled.div`
     font-size: 1.125em;
     font-weight: 600;
     letter-spacing: 0.03em;
+
+    @media (max-width: 1024px) {
+        padding: 0 5%;
+    }
+
+    @media (max-width: 600px) {
+        padding: 0 5%;
+    }
 `
 
 const Grid = styled.div`
@@ -59,6 +86,7 @@ const Item = styled.div`
 
 const Image = styled.img`
     border-radius: 44px;
+    width: 100%;
 `
 
 const ItemText = styled.div`
@@ -87,6 +115,14 @@ const Icon = styled.div`
     img{
         max-width: 75%;
         height: auto;
+
+        @media (max-width: 1024px) {
+            max-width: 85%
+        }
+
+        @media (max-width: 600px) {
+            max-width: 90%;
+        }
     }
 `
 

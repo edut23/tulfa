@@ -18,18 +18,28 @@ const HeaderDiv = styled.div`
     transition: color 0.3s ease;
 
     span{
-        margin-right: 75px;
+        margin: 2% 0;
+        margin-right: 10%;
     }
 
     svg {
         fill: ${({ isDark }) => (isDark ? '#000' : '#fff')};
+
+        @media (max-width: 1024px) {
+            width: 60%;
+        }
+
+        @media (max-width: 600px) {
+            width: 90%;
+        }
     }
 `
 
 const HeaderLogo = styled.div`
     width: 30%;
     height: 42px;
-    margin: 1.875em 4.6875em;
+    margin: 2% 0;
+    margin-left: 10%;
 `
 
 const Header = () => {

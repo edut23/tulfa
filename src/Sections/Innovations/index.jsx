@@ -7,6 +7,19 @@ import section4 from "../../Assets/section4.mp4"
 const InnovationsDiv = styled.div`
     background-color: #151568;
     padding: 0 200px;
+    text-align: left;
+    
+
+    @media (max-width: 1024px) {
+        padding: 10%
+    }
+
+    @media (max-width: 600px) {
+        padding: 5%;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
 `
 
 const Section = styled.div`
@@ -14,6 +27,14 @@ const Section = styled.div`
     padding: 60px 0;
     display: flex;
     gap: 50px;
+    width: 100%;
+
+    @media (max-width: 600px) {
+        flex-direction: ${props => props.reverse === 'true' ? 'column-reverse' : 'column'};
+        height: auto;
+        justify-content: center;
+        text-align: center;
+    }
 `
 
 const Content = styled.div`
@@ -27,7 +48,6 @@ const Content = styled.div`
         font-size: 12px;
         font-weight: 600;
         letter-spacing: 0.05em;
-        text-align: left;
         color: #736DFA
     }
 
@@ -36,7 +56,6 @@ const Content = styled.div`
         font-size: 24px;
         font-weight: 600;
         letter-spacing: 0.035em;
-        text-align: left;
     }
 
     p{ 
@@ -44,7 +63,6 @@ const Content = styled.div`
         font-size: 16px;
         font-weight: 300;
         letter-spacing: 0.035em;
-        text-align: left;
     }
 `
 
@@ -56,10 +74,13 @@ const Button = styled.button`
     font-size: 12px;
     font-weight: 500;
     letter-spacing: 0.05em;
-    text-align: left;
     color: #FFFFFF;
     border: none;
     width: fit-content;
+
+    @media (max-width: 600px) {
+        margin: 0 auto;
+    }
 `
 
 const Video = styled.video`
@@ -94,7 +115,7 @@ const Innovations = () => {
                     <source src={section1} type="video/mp4"/>
                 </Video>
             </Section>
-            <Section>
+            <Section reverse={'true'}>
                 <Video controls>
                     <source src={section2} type="video/mp4"/>
                 </Video>
@@ -130,7 +151,7 @@ const Innovations = () => {
                 </Content>
                 <Image src={section3} />
             </Section>
-            <Section>
+            <Section reverse={'true'}>
                 <Video controls>
                     <source src={section4} type="video/mp4"/>
                 </Video>

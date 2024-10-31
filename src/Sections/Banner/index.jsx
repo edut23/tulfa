@@ -35,6 +35,14 @@ const SoundButton = styled.div`
     transition: opacity 0.3s ease, transform 0.3s ease;
     cursor: pointer;
 
+    @media (max-width: 1024px) {
+        margin-top: 5%;
+    }
+
+    @media (max-width: 600px) {
+        margin-top: 12%;
+    }
+
     p{
         margin: 0;
         margin-bottom: 2px;
@@ -71,6 +79,14 @@ const Text = styled.p`
     text-align: left;
     width: 30%;
     margin: 0;
+
+    @media (max-width: 1024px) {
+        width: 50%;
+    }
+
+    @media (max-width: 600px) {
+        width: 100%;
+    }
 `
 
 const Banner = () => {

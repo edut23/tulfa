@@ -18,6 +18,8 @@ import Contact from './Sections/Contact';
 
 const AppDiv = styled.div`
   width: 100vw;
+  max-width: 100vw;
+  overflow: hidden;
 `
 
 function App() {

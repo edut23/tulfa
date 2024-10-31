@@ -16,6 +16,16 @@ const Text = styled.div`
     font-size: 2em;
     text-align: left;
     padding: 0 15%;
+
+    @media (max-width: 1024px) {
+        padding: 0 10%;
+        font-size: 1.5em;
+    }
+
+    @media (max-width: 600px) {
+        padding: 0 5%;
+        font-size: 1em;
+    }
 `
 
 const CTA = () => {
